@@ -1,0 +1,39 @@
+﻿@model Library.Dto.BookDto
+
+@{
+    ViewData["Title"] = "Book Details";
+}
+
+<h2>Book Details</h2>
+
+<div>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">Author</dt>
+        <dd class="col-sm-10">@Model.Author</dd>
+
+        <dt class="col-sm-2">Title</dt>
+        <dd class="col-sm-10">@Model.Title</dd>
+
+        <dt class="col-sm-2">Pages</dt>
+        <dd class="col-sm-10">@Model.Pages</dd>
+
+        <dt class="col-sm-2">YearPublished</dt>
+        <dd class="col-sm-10">@Model.YearPublished</dd>
+
+        <dt class="col-sm-2">CopiesAvailable</dt>
+        <dd class="col-sm-10">@Model.CopiesAvailable</dd>
+
+        <dt class="col-sm-2">Category</dt>
+        <dd class="col-sm-10">@Model.CategoryName</dd>
+
+
+        <dt class="col-sm-2">Description</dt>
+        <dd class="col-sm-10">@Model.Description</dd>
+
+    </dl>
+</div>
+<div>
+    <a href="@Url.Action("EditBook", new { id = Model.Id })" class="btn btn-warning">Edit</a>
+    <a href="@Url.Action("Books")" class="btn btn-secondary">Back to List</a>
+</div>

@@ -1,0 +1,41 @@
+﻿@model IEnumerable<Library.Dto.CategoryDto>
+@{
+    ViewData["Title"] = "Category List";
+}
+
+<a href="@Url.Action("CreateCategory", "Category")" class="btn btn-success">Create New Category</a>
+<br/>
+
+@if (Model != null)
+{
+    <h2>Category List</h2>
+    <table class="table table-bordered">
+        <thead class="thead-light">
+            <tr>
+                <th>Name</th>
+                <th>Created Date</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var category in Model)
+            {
+                <tr>
+                    <td>@category.Name</td>
+                    <td>@category.CreatedDate</td>
+                    <td>
+                        <a href="@Url.Action("Category", new { id = category.Id })" class="btn btn-info">Details</a>
+                        <a href="@Url.Action("EditCategory", new { id = category.Id })" class="btn btn-warning">Edit</a>
+                        <a href="@Url.Action("DeleteCategory", new { id = category.Id })" class="btn btn-danger">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <h6>No Category Found</h6>
+}
+
+

@@ -1,0 +1,41 @@
+﻿@model Library.Dto.BookDto
+@{
+    ViewData["Title"] = "Edit Book";
+}
+
+<h2>Edit Book</h2>
+
+<form asp-action="EditBook">
+    <input type="hidden" asp-for="Id" />
+    <div class="form-group">
+        <label class="control-label">Author</label>
+        <input Author="Author" class="form-control" type="text" />
+    </div>
+    <div class="form-group">
+        <label class="control-label">Title</label>
+        <input Title="Title" class="form-control" type="text"/>
+    </div>
+    <div class="form-group">
+        <label class="control-label">Pages</label>
+        <input Pages="Pages" class="form-control" type="number"/>
+    </div>
+    <div class="form-group">
+        <label class="control-label">YearPublished</label>
+        <input YearPublished="YearPublished" class="form-control" type="datetime"/>
+    </div>
+    <div class="form-group">
+        <label class="control-label">CopiesAvailable</label>
+        <input CopiesAvailable ="CopiesAvailable" class="form-control" type="number"/>
+    </div>
+    <br />
+
+    <div class="form-group">
+        <label class="control-label">Description</label>
+        <input Description="Description" class="form-control" type="text"/>
+    </div>
+    <br />
+    <div class="text-right">
+        <button class="btn btn-success" type="submit">Register</button>
+        <a class="btn btn-secondary" asp-action="Index">Cancel</a>
+    </div>
+</form>

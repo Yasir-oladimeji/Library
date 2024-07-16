@@ -1,0 +1,64 @@
+﻿@model Library.Dto.BookDto
+
+@{
+    ViewData["Title"] = "Create Book";
+}
+
+<h2>Create Book</h2>
+<form asp-action="CreateBook">
+    <div class="form-group">
+        <label class="control-label">Author</label>
+        <input name="Author" class="form-control" type="text" />
+    </div>
+
+    <br />
+
+    <div class="form-group">                                                                        
+        <label class="control-label">Title</label>  
+        <input name="Title" class="form-control" type="text" />
+    </div>
+
+    <br />
+
+    <div class="form-group">
+        <label class="control-label">Pages</label>
+        <input name="Pages" class="form-control" type="number" />
+    </div>
+
+    <br />
+
+    <div class="form-group">
+        <label class="control-label">YearPublished</label>
+        <input type="datetime-local" name="YearPublished" class="form-control"  />
+    </div>
+
+    <br />
+
+    <div class="form-group">
+        <label class="control-label">CopiesAvailable</label>
+        <input name="CopiesAvailable" class="form-control" type="number" />
+    </div>
+
+    <br />
+
+    <div class="form-group mb-2">
+        <label class="control-label">Category</label>
+        <select name="CategoryId" class="form-select" asp-items="@(ViewData["SelectCategories"] as IEnumerable<SelectListItem>)" required>
+            <option value="">Select Categories</option>
+        </select>
+    </div>
+
+    <br />
+
+    <div class="form-group">
+        <label class="control-label">Description</label>
+        <input name="Description" class="form-control" type="text" />
+    </div>
+
+    <br />
+
+    <div class="text-right">
+        <button class="btn btn-success" type="submit">Create</button>
+        <a class="btn btn-secondary" asp-action="Books">Cancel</a>
+    </div>
+</form>

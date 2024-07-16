@@ -1,0 +1,45 @@
+﻿@model IEnumerable<Library.Dto.BookDto>
+@{
+    ViewData["Title"] = "Books";
+} 
+<a href="@Url.Action("CreateBook", "Book")" class="btn btn-success">Create New Book</a>
+<br />
+
+@if (Model != null)
+{
+    <h2>Books List</h2>
+    <table class="table table-bordered">
+        <thead class="thead-light">
+            <tr>
+                <th>Author</th>
+                <th>Title</th>
+                <th>Pages</th>
+                <th>Category</th>
+                <th>YearPublished</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var book in Model)
+            {
+                <tr>
+                    <td>@book.Author</td>
+                    <td>@book.Title</td>
+                    <td>@book.Pages</td>
+                    <td>@book.CategoryName</td>
+                    <td>@book.YearPublished</td>
+                    <td>
+                        <a href="@Url.Action("Book", new { id = book.Id })" class="btn btn-info">Details</a>
+                        <a href="@Url.Action("EditBook","Book", new { id = book.Id })" class="btn btn-warning">Edit</a>
+                        <a href="@Url.Action("DeleteBook", new { id = book.Id })" class="btn btn-danger">Delete</a>
+                        <a></a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <h6>No Book Found</h6> 
+}
